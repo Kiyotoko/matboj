@@ -27,7 +27,7 @@ def main():
         if (score > evaluated(i)):
             score = evaluated(i)
             minimum = i
-    print(minimum, score)
+    print("m:", minimum, "#", score)
 
 
 if __name__ == "__main__":
