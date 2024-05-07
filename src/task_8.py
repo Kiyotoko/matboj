@@ -1,20 +1,26 @@
 from tqdm import tqdm
 
-def quer_sum(i: int) -> int:
+def quer_sum(n: int) -> int:
+    """Gibt die Quersumme einer Zahl zurück."""
     q = 0
-    n = i
-    while (n > 0):
-        t = n % 10
+    j = n
+    while (j > 0):
+        t = j % 10
         q += t
-        n //= 10
+        j //= 10
     return q
 
 
-def evaluated(i: int) -> float:
-    return i / quer_sum(i)
+def evaluated(n: int) -> float:
+    """Gibt den Performance Score n/q(n) zurück."""
+    return n / quer_sum(n)
 
 
 def main():
+    """
+    Sei q(n) die Quersumme einer natürlichen Zahl n. Finde die dreistellige
+    natürliche Zahl m, für die der Quotient m/q(m) minimal ist.
+    """
     minimum = 10 ** 3
     score = evaluated(minimum)
     for i in tqdm(range(10 ** 2, 10 ** 3)):
